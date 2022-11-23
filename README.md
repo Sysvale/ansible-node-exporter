@@ -83,7 +83,7 @@ Before running node_exporter role, the user needs to provision their own certifi
       cert_file: /etc/node_exporter/tls.cert
       key_file: /etc/node_exporter/tls.key
     node_exporter_basic_auth_users:
-      randomuser: examplepassword 
+      randomuser: examplepassword
 ```
 
 
