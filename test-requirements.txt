@@ -1,8 +1,10 @@
 molecule>=3.0.0
 molecule-docker
 docker
-ansible-lint>=3.4.0
+ansible-lint<3.6
 testinfra>=1.7.0
 jmespath
 selinux
 passlib
+ansible<4.11
+ansible-core<2.12

@@ -1,15 +1,4 @@
-<p><img src="https://www.circonus.com/wp-content/uploads/2015/03/sol-icon-itOps.png" alt="graph logo" title="graph" align="right" height="60" /></p>
-
 # Ansible Role: node exporter
-
-[![Build Status](https://travis-ci.org/cloudalchemy/ansible-node-exporter.svg?branch=master)](https://travis-ci.org/cloudalchemy/ansible-node-exporter)
-[![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
-[![Ansible Role](https://img.shields.io/badge/ansible%20role-cloudalchemy.node_exporter-blue.svg)](https://galaxy.ansible.com/cloudalchemy/node_exporter/)
-[![GitHub tag](https://img.shields.io/github/tag/cloudalchemy/ansible-node-exporter.svg)](https://github.com/cloudalchemy/ansible-node-exporter/tags)
-
-## Warning
-
-Due to limitations of galaxy.ansible.com we had to move the role to https://galaxy.ansible.com/cloudalchemy/node_exporter and use `_` instead of `-` in role name. This is a breaking change and unfortunately, it affects all versions of node_exporter role as ansible galaxy doesn't offer any form of redirection. We are sorry for the inconvenience.
 
 ## Description
 
@@ -40,13 +29,25 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 
 ## Example
 
+### Requirements
+To use it install:
+```
+# requirements.yml
+---
+roles:
+  - name: sysvale.node_exporter
+    src: https://github.com/Sysvale/ansible-node-exporter.git
+    scm: git
+    version: 2.0.1
+```
+
 ### Playbook
 
 Use it in a playbook as follows:
 ```yaml
 - hosts: all
   roles:
-    - cloudalchemy.node_exporter
+    - sysvale.node_exporter
 ```
 
 ### TLS config
@@ -69,13 +70,13 @@ Before running node_exporter role, the user needs to provision their own certifi
         privatekey_path: /etc/node_exporter/tls.key
         provider: selfsigned
   roles:
-    - cloudalchemy.node_exporter
+    - sysvale.node_exporter
   vars:
     node_exporter_tls_server_config:
       cert_file: /etc/node_exporter/tls.cert
       key_file: /etc/node_exporter/tls.key
     node_exporter_basic_auth_users:
-      randomuser: examplepassword 
+      randomuser: examplepassword
 ```
 
 
